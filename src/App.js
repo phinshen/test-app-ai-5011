@@ -1,24 +1,112 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Components/Navbar";
+import About from "./Components/About";
+import Grades from "./Components/Grades";
+import Shop from "./Components/Shop";
+import Counter from "./Components/Counter";
+import Triangle from "./Components/Triangle";
+import Order from "./Components/Order";
+import Name from "./Components/Name";
+import Anim from "./Components/Anim";
+import Home from "./Components/Home";
+import { Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "jquery/dist/jquery.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <Navbar />
+            <Home />
+          </>
+        }
+      />
+
+      <Route
+        path="/about"
+        element={
+          <>
+            <Navbar />
+            <About />
+          </>
+        }
+      />
+
+      <Route
+        path="/grades"
+        element={
+          <>
+            <Navbar />
+            <Grades />
+          </>
+        }
+      />
+
+      <Route
+        path="/shop"
+        element={
+          <>
+            <Navbar />
+            <Shop />
+          </>
+        }
+      />
+
+      <Route
+        path="/counter"
+        element={
+          <>
+            <Navbar />
+            <Counter />
+          </>
+        }
+      />
+
+      <Route
+        path="/triangle"
+        element={
+          <>
+            <Navbar />
+            <Triangle />
+          </>
+        }
+      />
+
+      <Route
+        path="/order"
+        element={
+          <>
+            <Navbar />
+            <Order />
+          </>
+        }
+      />
+
+      <Route
+        path="/name"
+        element={
+          <>
+            <Navbar />
+            <Name />
+          </>
+        }
+      />
+
+      <Route
+        path="/anim"
+        element={
+          <>
+            <Navbar />
+            <Anim />
+          </>
+        }
+      />
+    </Routes>
   );
 }
 
