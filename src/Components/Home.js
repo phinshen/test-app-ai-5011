@@ -18,32 +18,12 @@ class Home extends Component {
             general information on using the website.
           </li>
           <li>
-            <a href="/about">/about</a> - The website's About page. This page
-            gives background information regarding the website.
-          </li>
-          <li>
-            <a href="/anim">/anim</a> - Shows off a simple animation you can use
-            with JavaScript timeouts.
-          </li>
-          <li>
             <a href="/counter">/counter</a> - A simple counter application that
             keeps track of entries and exits.
           </li>
           <li>
             <a href="/grades">/grades</a> - A simple grade calculation
             application that keeps track of score and total.
-          </li>
-          <li>
-            <a href="/name">/name</a> - A simple application that demonstrates
-            element content swapping.
-          </li>
-          <li>
-            <a href="/order">/order</a> - Another simple application that
-            demonstrates element content swapping.
-          </li>
-          <li>
-            <a href="/shop">/shop</a> - Lists the names and prices of various
-            shop items.
           </li>
           <li>
             <a href="/triangle">/triangle</a> - A simple application the solves
