@@ -3,15 +3,29 @@ import React, { useState } from "react";
 const Counter = () => {
   const [entryCount, setEntryCount] = useState(0);
   const [exitCount, setExitCount] = useState(0);
+  const [actionLog, setActionLog] = useState([]);
 
-  const updateEntry = () => setEntryCount(entryCount + 1);
-  const updateExit = () => setExitCount(exitCount + 1);
+  const addToActionLog = (action) => {
+    const timestamp = new Date().toLocaleTimeString();
+    const newLog = [{ action, timestamp }, ...actionLog].slice(0, 10);
+    setActionLog(newLog);
+  };
+
+  const updateEntry = () => {
+    setEntryCount(entryCount + 1);
+    addToActionLog("Entry");
+  };
+
+  const updateExit = () => {
+    setExitCount(exitCount + 1);
+    addToActionLog("Exit");
+  };
 
   return (
     <div
       style={{
         padding: "20px",
-        maxWidth: "400px",
+        maxWidth: "500px",
         margin: "auto",
         textAlign: "center",
         border: "1px solid #ccc",
@@ -38,7 +52,7 @@ const Counter = () => {
         </button>
       </div>
 
-      <div>
+      <div style={{ marginBottom: "30px" }}>
         <p style={{ fontSize: "18px", margin: "10px 0" }}>
           <strong>Exits:</strong>{" "}
           <span style={{ fontWeight: "bold", color: "#dc3545" }}>
@@ -53,6 +67,43 @@ const Counter = () => {
         >
           Add Exit
         </button>
+      </div>
+
+      <h3 style={{ marginBottom: "15px" }}>Last 10 Actions</h3>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Action</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {actionLog.map((log, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>
+                  <span
+                    className={
+                      log.action === "Entry" ? "text-success" : "text-danger"
+                    }
+                  >
+                    {log.action}
+                  </span>
+                </td>
+                <td>{log.timestamp}</td>
+              </tr>
+            ))}
+            {actionLog.length === 0 && (
+              <tr>
+                <td colSpan="3" className="text-muted">
+                  No actions yet.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

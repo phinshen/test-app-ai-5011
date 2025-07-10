@@ -5,7 +5,7 @@ const school = "Banana School";
 
 function getGrade(score, total) {
   if (total === 0) return "N/A"; // Handle division by zero
-  return ((score / total) * 500 + 50).toFixed(2);
+  return ((score / total) * 50 + 50).toFixed(2);
 }
 
 const Grades = function () {
